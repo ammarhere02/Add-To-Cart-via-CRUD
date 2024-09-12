@@ -1,0 +1,20 @@
+In this portion the user will enter his personal data , in the cart where his information will be stored in local storage so he won't face trouble after refreshing or navigating back and forth of the page
+![image](https://github.com/user-attachments/assets/1cf5b193-b87f-4cea-98b7-b62d473fcacb)
+
+  eve.preventDefault();
+
+  const input1 = document.getElementById("uname").value;
+  const input2 = document.getElementById("uphone").value;
+  const input3 = document.getElementById("uemail").value;
+  if (input1 === "" || input2 === "" || input3 === "") {
+    alert("Please fill all the blanks");
+  } else {
+    const arr = JSON.stringify({ input1, input2, input3 }); // converting the data to string so that it access local storage
+    console.log(arr);
+    console.log("We got your data");
+    localStorage.setItem("user", arr);
+    const dataa = localStorage.getItem("user");
+    const parse = JSON.parse(dataa); //storing the parsed data which is saved in local storage
+    alert("User input data is stored");
+  }
+});
